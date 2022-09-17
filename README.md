@@ -8,7 +8,6 @@
 
 ## Feladat:
 > A céges projekteket megjelenítő oldal kialakítása
-
     1. [ ] Kártyás megjelenítés, amin látszik a projekt neve, leirása, és a kezdőbetűiből generált kép (Erre a 2.célra használd valamelyik online image placeholder szolgáltatást).
     2. [ ] A listázás async módon történjen, ami a backend hívást szimulálja (Ténylegesen nincs backend hívás, a lényeg, az aszinkronitás).
     3. [ ] Legyen egy "Új projekt” gomb a felületen, amelyre kattintva a "Projekt hozzáadása felület"-re jutunk.
