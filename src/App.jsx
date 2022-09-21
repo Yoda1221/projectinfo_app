@@ -1,11 +1,18 @@
+import { Routes, Route }  from 'react-router-dom'
+import { Layout }         from './container'
+import { Home, Navigation, NewProject } from './components'
 
 function App() {
   return (
-    <div>
-      <header>
-        <h1>Projectinfo App</h1>
-      </header>
-    </div>
+    <>
+    <Navigation />
+    <Routes >
+      <Route path="/" element={<Layout />}>
+        <Route index element={ <Home  /> } />
+        <Route path="/new" element={<NewProject />}/>  
+      </Route>
+    </Routes>
+    </>
   )
 }
 
