@@ -1,7 +1,12 @@
 import { useState } from 'react'
+import { useQuery, useMutation, useQueryClient } from "react-query"
 import { AuthorInfo, ProjectInfo, OwnerInfo } from '../components'
+import { addProjects } from "../api/projectsApi"
+import { useNavigate }    from "react-router-dom"
+
 
 const initialState = {
+  id:0,
   pName: '',
   pDesc: '',
   author: '',
@@ -11,13 +16,23 @@ const initialState = {
 }
 
 const NewProject = () => {
+  const navigate  = useNavigate()
+  const queryClient = useQueryClient()
+  const [pValue, setpValue]       = useState(1)
   const [page, setPage]           = useState(0)
   const [formDatas, setFormDatas] = useState(initialState)
 
   const formTitles = Object.freeze({
-    name:   "Name form",
-    author: "Author form",
-    owner:  "Owner form"
+    0: "Project name form",
+    1: "Author form",
+    2: "Owner form"
+  })
+
+  const addProjectsMutation = useMutation(addProjects, {
+    onSuccess: () => {
+        // Invalidates cache and refetch 
+        queryClient.invalidateQueries("projects")
+    }
   })
 
   const handleChange = (e) => {
@@ -25,7 +40,9 @@ const NewProject = () => {
   }
   const handleSubmit = async () => {
       console.log('FORMDATAS ', formDatas)
-
+      addProjectsMutation.mutate(formDatas)
+      setFormDatas(initialState)
+      navigate('/') 
   }
   const pageDisplay = () => {
     if (page === 0) {
@@ -39,15 +56,18 @@ const NewProject = () => {
 
   return (
     <div className='container mt-5'>
-      <div className="progressbar">
-        <div
-          style={{ 
-            width: page === 0 ? "33.3%" : page === 1 ? "66.6%" : "100%" 
-          }}
-        ></div>
         <div className="row">
           <div className="col-md-12">
-          <h1>{formTitles.name}</h1>
+            <h1>{formTitles[page]}</h1>
+          </div>
+          <div className='col-md-12'>
+            <div className="progress">
+              <div 
+                className="progress-bar progress-bar-striped progress-bar-animated bg-info" 
+                role="progressbar"
+                style={{ width: page === 0 ? "33.3%" : page == 1 ? "66.6%" : "100%" }}
+              ></div>
+            </div>
           </div>
         </div>
         <div className="row">
@@ -55,13 +75,13 @@ const NewProject = () => {
             {pageDisplay()}
           </div>
         </div>
-      </div>
       <div className="row">
         <div className="col-md-12 d-flex justify-content-between">
           <button
             disabled={page === 0}
             onClick={() => {
-              setPage((currPage) => currPage - 1);
+              setPage((currPage) => currPage - 1)
+              setpValue(pValue - 1)
             }} className='btn btn-sm btn-warning px-3'
           >
             Prev
@@ -71,7 +91,8 @@ const NewProject = () => {
               if (page === Object.keys(formTitles).length - 1) {
                 handleSubmit()
               } else {
-                setPage((currPage) => currPage + 1);
+                setPage((currPage) => currPage + 1)
+                setpValue(pValue + 1 * 100)
               }
             }} 
             className='btn btn-sm btn-info px-3'

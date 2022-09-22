@@ -1,7 +1,5 @@
 export { default as Home }          from "./Home"
 export { default as Projects }      from "./Projects"
-export { default as Step }          from "./formik/MultiStep"
-export { default as MultiStep }     from "./formik/MultiStep"
 export { default as OwnerInfo }     from "./steps/OwnerInfo"
 export { default as AuthorInfo }    from "./steps/AuthorInfo"
 export { default as ProjectInfo }   from "./steps/ProjectInfo"
