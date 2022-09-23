@@ -34,23 +34,9 @@
 ## Requirements
 - React és Typescript használata
 
-
-
-       {/*  <Card 
-          text="light"
-          variant="dark"
-          bg="secondary"
-        >
-            <Card.Body>
-                <Card.Title className='text-center'>Add New Project</Card.Title>
-                <Card.Text>
-                Click the "To create a new project" button, if you want to create a new project
-                </Card.Text>
-            </Card.Body>
-            <Card.Img variant="" src={noImage} alt="Project image" />
-            <Card.Body>
-                <Link to="/new" >
-                    <Button className='btn-sm w-100' variant="info">To create a new project</Button>{' '}
-                </Link>
-            </Card.Body>
-        </Card> */}
+### Run the application
+- npm i (to download the node-modules)
+- install json server (npm i json-server -g)
+- run the folloving code on terminal (json-server -w data/projects.json -p 3500)
+- open a new terminal and
+- run: npm start

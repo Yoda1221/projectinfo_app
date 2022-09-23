@@ -1,9 +1,8 @@
-import { useState } from 'react'
-import { useQuery, useMutation, useQueryClient } from "react-query"
+import { useState }     from 'react'
+import { addProjects }  from "../api/projectsApi"
+import { useNavigate }  from "react-router-dom"
+import { useMutation, useQueryClient }        from "react-query"
 import { AuthorInfo, ProjectInfo, OwnerInfo } from '../components'
-import { addProjects } from "../api/projectsApi"
-import { useNavigate }    from "react-router-dom"
-
 
 const initialState = {
   id:0,
@@ -30,11 +29,9 @@ const NewProject = () => {
 
   const addProjectsMutation = useMutation(addProjects, {
     onSuccess: () => {
-        // Invalidates cache and refetch 
         queryClient.invalidateQueries("projects")
     }
   })
-
   const handleChange = (e) => {
     setFormDatas((prevState) => ({ ...prevState, [e.target.name]: e.target.value }))
   }
@@ -45,13 +42,9 @@ const NewProject = () => {
       navigate('/') 
   }
   const pageDisplay = () => {
-    if (page === 0) {
-      return <ProjectInfo handleChange={handleChange} formDatas={formDatas} />;
-    } else if (page === 1) {
-      return <AuthorInfo handleChange={handleChange} formDatas={formDatas} />;
-    } else {
-      return <OwnerInfo handleChange={handleChange} formDatas={formDatas} />;
-    }
+    if (page === 0) return <ProjectInfo handleChange={handleChange} formDatas={formDatas} />
+    else if (page === 1) return <AuthorInfo handleChange={handleChange} formDatas={formDatas} />
+    else return <OwnerInfo handleChange={handleChange} formDatas={formDatas} />
   }
 
   return (
@@ -65,8 +58,8 @@ const NewProject = () => {
               <div 
                 className="progress-bar progress-bar-striped progress-bar-animated bg-info" 
                 role="progressbar"
-                style={{ width: page === 0 ? "33.3%" : page == 1 ? "66.6%" : "100%" }}
-              ></div>
+                style={{ width: page === 0 ? "33.3%" : page === 1 ? "66.6%" : "100%" }}
+              />
             </div>
           </div>
         </div>

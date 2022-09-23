@@ -1,11 +1,7 @@
 import { Projects } from '../components'
 
-const Home = () => {
-  return (
-    <>
-      <Projects />
-    </>
-  )
-}
+const Home = () => (
+  <Projects />
+)
 
 export default Home

@@ -1,10 +1,9 @@
 import React from 'react'
-import { ProjectCard } from '../components'
-import { useQuery, useMutation, useQueryClient } from "react-query"
-import { getProjects, addProjects, updateProjects, deleteProjects } from "../api/projectsApi"
+import { useQuery }     from "react-query"
+import { ProjectCard }  from '../components'
+import { getProjects }  from "../api/projectsApi"
 
 const Projects = () => {
-  const queryClient = useQueryClient()
   const {
     isLoading,
     isError,
@@ -17,9 +16,7 @@ const Projects = () => {
   let content
   if (isLoading)    content = <p>Loading...</p>
   else if (isError) content = <p>{error.message}</p>
-  else {
-    content = <ProjectCard projects={projects} />
-  }
+  else content = <ProjectCard projects={projects} />
 
   return (
     <div className="container mt-5 grid">

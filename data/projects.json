@@ -20,30 +20,12 @@
     },
     {
       "id": 3,
-      "pName": "Test_03",
-      "pDesc": "Test project 03",
+      "pName": "Test _03",
+      "pDesc": "Test project 3",
       "author": "Yoda2",
       "aEmail": "yoda2@me.com",
       "owner": "Han Solo",
-      "oEmail": "han@solo.com"
-    },
-    {
-      "id": 4,
-      "pName": "Test_04",
-      "pDesc": "Test project 04",
-      "author": "Yoda3",
-      "aEmail": "yoda3@me.com",
-      "owner": "Han Solo1",
-      "oEmail": "han@solo1.com"
-    },
-    {
-      "id": 5,
-      "pName": "Test_05",
-      "pDesc": "Test project 05",
-      "author": "Yoda4",
-      "aEmail": "yoda4@me.com",
-      "owner": "Vader",
-      "oEmail": "vader2@darkside.com"
+      "oEmail": "han@solo.hu"
     }
   ]
 }

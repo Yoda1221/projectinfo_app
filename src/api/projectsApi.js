@@ -12,10 +12,10 @@ export const addProjects = async (project) => {
     return await projectApi.post("/projects", project)
 }
 export const updateProjects = async (project) => {
-    return await projectApi.post(`/projects/${project.pName}`, project)
+    return await projectApi.patch(`/projects/${project.id}`, project)
 }
-export const deleteProjects = async (pName) => {
-    return await projectApi.post(`/projects/${pName}`, pName)
+export const deleteProjects = async ({id}) => {
+    return await projectApi.delete(`/projects/${id}`, id)
 }
 
 export default projectApi
