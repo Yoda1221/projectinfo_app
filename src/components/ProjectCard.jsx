@@ -19,11 +19,11 @@ const ProjectCard = ({projects}) => {
                 {/* <Card.Img variant="top" src={noImage} alt="Project image" /> */}
                 {/* <Card.ImgOverlay> */}
                     <Card.Body>
-                        <Card.Title className='d-flex justfy-content-between'>
+                        <Card.Title className='d-grid gap-2 d-flex justify-content-between'>
                             {project.pName}
                             <Button
                                 className='btn btn-sm'
-                                variant='outline-info'
+                                variant='outline-danger'
                                 id={project.id}
                                 onClick={() => deleteProjectsMutation.mutate({ id: project.id })}
                             >

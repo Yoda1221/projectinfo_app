@@ -21,11 +21,11 @@
     {
       "id": 3,
       "pName": "Test _03",
-      "pDesc": "Test project 3",
-      "author": "Yoda2",
-      "aEmail": "yoda2@me.com",
+      "pDesc": "Test project 03",
+      "author": "Yoda",
+      "aEmail": "yoda@me.com",
       "owner": "Han Solo",
-      "oEmail": "han@solo.hu"
+      "oEmail": "han@solo.com"
     }
   ]
 }
